@@ -12,6 +12,8 @@ const forcedNavOrder = config.sidebar.forcedNavOrder;
 
 export default class MDXRuntimeTest extends Component {
   render() {
+    console.log(this.props);
+    
     const { data } = this.props;
 
     if (!data) {
@@ -50,7 +52,7 @@ export default class MDXRuntimeTest extends Component {
         },
         { items: [] }
       );
-
+      
     const nav = forcedNavOrder
       .reduce((acc, cur) => {
         return acc.concat(navItems[cur]);

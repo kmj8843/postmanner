@@ -2,16 +2,6 @@ require("dotenv").config();
 const queries = require("./src/utils/algolia");
 const config = require("./config");
 const plugins = [
-  '@wardpeet/gatsby-plugin-static-site',
-  {
-    resolve: `gatsby-plugin-runtime-path-prefix`,
-    options: {
-      prefix: `__PATH_PREFIX__`,
-      pattern: /^(\/bzz:\/[^/]+)/, // use /^(\/(?:ipfs|ipns)\/[^/]+)/ for IPFS
-      useBasename: `${__dirname}`
-    },
-  },
-
   'gatsby-plugin-sitemap',
   'gatsby-plugin-sharp',
 
@@ -93,9 +83,27 @@ if (config.gatsby && !config.gatsby.trailingSlash) {
   plugins.push('gatsby-plugin-remove-trailing-slashes');
 }
 
+if (config.gatsby.static) {
+  plugins.push('@wardpeet/gatsby-plugin-static-site');
+  // plugins.push('gatsby-plugin-relative-paths');
+  plugins.push({
+    resolve: `gatsby-plugin-runtime-path-prefix`,
+    options: {
+      prefix: `__PATH_PREFIX__`,
+      // prefix: 'C:/Users/rlals/Desktop/temp/postmanner/postmanner/public',
+      pattern: /^/, // use /^(\/(?:ipfs|ipns)\/[^/]+)/ for IPFS
+      useBasename: `${__dirname}`
+    }
+  });
+
+  config.gatsby.pathPrefix = '__PATH_PREFIX__';
+  // config.gatsby.pathPrefix = 'C:/Users/rlals/Desktop/temp/postmanner/postmanner/public';
+}
+
 module.exports = {
-  // pathPrefix: config.gatsby.pathPrefix,
-  pathPrefix: '__PATH_PREFIX__',
+  pathPrefix: config.gatsby.pathPrefix,
+  // pathPrefix: '__PATH_PREFIX__',
+  // assetPrefix: '__GATSBY_RELATIVE_PATH__',
   siteMetadata: {
     title: config.siteMetadata.title,
     description: config.siteMetadata.description,

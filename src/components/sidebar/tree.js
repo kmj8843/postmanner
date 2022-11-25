@@ -9,10 +9,10 @@ const calculateTreeData = edges => {
           node: {
             fields: { slug },
           },
-        }) => slug !== '/'
+        }) => slug !== '/' && !slug.startsWith('/index.html')
       )
     : edges;
-
+    
   const tree = originalData.reduce(
     (
       accu,
@@ -119,7 +119,7 @@ const Tree = ({ edges }) => {
   let [treeData] = useState(() => {
     return calculateTreeData(edges);
   });
-
+console.log(treeData);
   const defaultCollapsed = {};
 
   treeData.items.forEach(item => {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import isAbsoluteUrl from 'is-absolute-url';
+import config from '../../config';
 
 const Link = ({ to, ...props }) =>
   isAbsoluteUrl(to) ? (
@@ -8,7 +9,7 @@ const Link = ({ to, ...props }) =>
       {props.children}
     </a>
   ) : (
-    <GatsbyLink to={to + 'index.html'} {...props} />
+    <GatsbyLink to={to + (config.gatsby.static ? 'index.html' : '')} {...props} />
   );
 
 export default Link;

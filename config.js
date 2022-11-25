@@ -1,14 +1,15 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://hasura.io',
+    siteUrl: 'https://github.com/kmj8843/postmanner',
     gaTrackingId: null,
     trailingSlash: true,
+    static: true,
   },
   header: {
     logo: '',
     logoLink: 'http://groupware.pencilstudio.co.kr',
-    title: "groupware API 명세서",
+    title: "API 명세서",
     githubUrl: 'https://gitlab.emotion.co.kr/ep/groupware/groupware-api',
     helpUrl: '',
     tweetText: '',
@@ -24,30 +25,29 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
-      '/codeblock',
+      '/introduction/index.html', // add trailing slash if enabled above
+      '/codeblock/index.html',
     ],
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above
     ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
+    links: [{ text: '', link: '' }],
     frontLine: false,
     ignoreIndex: true,
-    title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
+    title: "<a href='https://github.com/kmj8843/postmanner'>Postmanner </a>",
   },
   siteMetadata: {
-    title: '그룹웨어 API 명세서',
-    description: '그룹웨어 API 명세서 by CT2',
+    title: 'postmanner',
+    description: '그룹웨어 API 명세서',
     ogImage: null,
     docsLocation: 'https://gitlab.emotion.co.kr/ep/groupware/groupware-api',
-    favicon: 'https://www.emotion.co.kr/favicon.ico',
+    favicon: 'https://www.postman.com/_ar-assets/images/favicon-1-48.png',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
     manifest: {
-      name: 'Gatsby Gitbook Starter',
-      short_name: 'GitbookStarter',
+      name: 'Postmanner',
+      short_name: 'Postmanner',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',

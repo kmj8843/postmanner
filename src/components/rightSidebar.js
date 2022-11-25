@@ -35,6 +35,7 @@ const SidebarLayout = ({ location }) => (
               item.node.fields.slug === location.pathname ||
               config.gatsby.pathPrefix + item.node.fields.slug === location.pathname
             ) {
+              console.log(item.node.tableOfContents.items)
               if (item.node.tableOfContents.items) {
                 innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
                   const itemId = innerItem.title

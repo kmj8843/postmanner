@@ -80,16 +80,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value = '';
     }
 
+    const suffix = config.gatsby.static ? 'index.html' : '';
     if (config.gatsby && config.gatsby.trailingSlash) {
       createNodeField({
         name: `slug`,
         node,
+        // value: value === '' ? `/${suffix}/` : `/${value}/${suffix}/`,
         value: value === '' ? `/` : `/${value}/`,
       });
     } else {
       createNodeField({
         name: `slug`,
         node,
+        // value: `/${value}/${suffix}`,
         value: `/${value}`,
       });
     }

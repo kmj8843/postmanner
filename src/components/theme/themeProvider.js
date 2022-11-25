@@ -23,7 +23,7 @@ class ThemeProvider extends React.Component {
 
   toggleActiveTheme = () => {
     this.setState(prevState => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
-
+    
     window.localStorage.setItem('isDarkThemeActive', JSON.stringify(!this.state.isDarkThemeActive));
   };
 
